@@ -1,0 +1,13 @@
+{
+  "version": "1.0",
+  "provenance": "Original tunable starting points; not official company tokens",
+  "durationMs": {"feedback": 100, "state": 180, "transition": 260, "emphasis": 420},
+  "effectsEasing": [0.2, 0, 0.2, 1],
+  "stagger": {"gapMs": 24, "maxCumulativeDelayMs": 120},
+  "schemes": {
+    "productive": {"omega": 24, "zeta": 1},
+    "expressive": {"omega": 18, "zeta": 0.72},
+    "narrative": {"omega": 12, "zeta": 0.9}
+  },
+  "reducedMotion": {"spatial": "snap", "effects": "snap-or-short-monotonic-fade", "ambient": "off"}
+}

@@ -1,0 +1,21 @@
+# Local tooling and editor state
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+node_modules/
+.venv/
+__pycache__/
+
+# Local secrets and generated checks
+.env
+.env.*
+*-validation.json
+gallery-preview.png
+gallery-desktop.png
+gallery-mobile.png
+experience-mobile.png
+experience-modal.png
+playwright-report/
+test-results/
+*.log

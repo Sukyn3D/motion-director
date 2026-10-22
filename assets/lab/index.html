@@ -1,0 +1,222 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Motion Director · 决策与范例实验室</title><style>:root{--ink:#1e423f;--muted:#64766f;--line:#d8e0d8}*{box-sizing:border-box}body{margin:0;background:#f3f1eb;color:var(--ink);font:16px/1.6 "Microsoft YaHei",Arial,sans-serif}main{max-width:1180px;margin:auto;padding:45px 28px 70px}h1{font-size:clamp(34px,5vw,62px);line-height:1.18;letter-spacing:-2px;margin:20px 0}h2{font-size:24px;margin:0 0 10px;line-height:1.4}p{color:var(--muted);margin:12px 0}.eyebrow,.meta{font-size:12px;letter-spacing:1.4px;color:var(--muted)}.lead{font-size:19px;max-width:800px}.tag{display:inline-block;border:1px solid var(--line);border-radius:40px;padding:5px 12px;font-size:13px}.workflow{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:30px 0}.step,.panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:25px;min-width:0}.step strong{display:block;font-size:21px}.step small{font-size:14px;color:var(--muted)}.usage{background:var(--ink);color:white;padding:26px;border-radius:16px;margin:22px 0}.usage p{color:#d6e3dc}textarea{width:100%;min-height:112px;border:1px solid #fff6;border-radius:8px;padding:12px;background:#fff1;color:white;font:15px/1.7 "Microsoft YaHei",Arial;resize:vertical}button{font:inherit;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--ink);padding:10px 17px;cursor:pointer;transition:background-color 140ms cubic-bezier(.2,0,0,1),color 140ms cubic-bezier(.2,0,0,1)}button:hover{background:#e4ece5}button:active{background:#d4e3d8}button[aria-pressed=true]{background:var(--ink);color:#fff}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:3px solid #26746d;outline-offset:4px}input[type=checkbox]{width:18px;height:18px;vertical-align:middle;margin-right:8px}label{cursor:pointer}.toolbar,.tools{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:18px 0}.tools{justify-content:space-between;margin-top:36px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.wide{grid-column:1/-1}.rule{font-size:14px;border-top:1px solid var(--line);padding-top:15px;margin-top:20px}.status{font-size:13px;color:var(--muted)}.keep{background:#edf5ed;border-left:3px solid #26746d;padding:17px;margin:20px 0}.audit-table{width:100%;border-collapse:collapse;font-size:14px}.audit-table td,.audit-table th{text-align:left;padding:11px 8px;border-bottom:1px solid var(--line)}.audit-table th{font-weight:500;color:var(--muted)}.face{display:flex;align-items:center;justify-content:center;gap:12px}.press-button{width:168px;height:56px;background:var(--ink);color:white;padding:0}.press-button:hover{background:#2b5650}.press-button[data-pressed=true]{background:#3d665c}.icon-button{width:66px;height:66px;padding:15px}.icon-button svg{display:block;width:32px;height:32px}.heart-fill{opacity:0}.tabs{position:relative;display:flex;gap:4px;border-bottom:1px solid var(--line);padding-bottom:7px}.tabs button{flex:1;min-width:0;border:none;border-radius:7px;background:transparent;padding:10px 8px;font-size:15px}.tabs [aria-selected=true]{font-weight:600}.indicator{position:absolute;left:0;bottom:-1px;height:3px;background:#27776c;border-radius:3px}.tab-panel{padding:18px 5px;min-height:84px}.tab-panel strong{font-size:21px}.entries{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.entry{padding:17px 6px;border:1px solid var(--line);border-radius:8px;text-align:center;background:#f8faf6}.detail-stage{position:relative;height:360px;background:#eef3ee;border-radius:12px;overflow:hidden}.surface{position:absolute;left:16px;top:24px;width:240px;height:266px;border:1px solid #d3ddd7;background:white;border-radius:12px;overflow:hidden}.surface img{width:100%;height:180px;display:block;object-fit:cover}.card-title{padding:14px 18px;font-size:18px}.details{position:absolute;bottom:19px;left:18px;right:18px;opacity:0;font-size:15px;color:var(--muted)}a{color:#26746d}.tiles{position:relative;height:224px;overflow:hidden}.tile{position:absolute;left:0;top:0;height:104px;padding:12px;border:1px solid var(--line);border-radius:9px;background:#fafbf7;font-size:15px}.tile strong{display:block;margin:7px 0}.swatch{display:block;width:23px;height:23px;border-radius:5px}.chart-row{display:grid;grid-template-columns:45px 1fr 34px;gap:10px;align-items:center;font-size:14px;margin:14px 0}.track{height:16px;border-radius:10px;background:#edf3ec;overflow:hidden}.bar{display:block;width:0;height:100%;border-radius:10px;background:#3c8277}.value{font-weight:600;font-variant-numeric:tabular-nums}.magnetic{width:216px;height:64px;padding:0;border-radius:40px;background:var(--ink);color:#fff}.magnetic:hover{background:#2b5650}.magnet-visual{height:100%;display:flex;align-items:center;justify-content:center;gap:25px}.magnet-icon{display:block}.bubble-stage{position:relative;height:270px;border:1px solid #e0e6dd;background:#f2f5ef;border-radius:13px;overflow:hidden}.bubble{position:absolute;left:calc(50% - 80px);top:65px;width:160px;height:160px;padding:0;border:0;background:transparent!important;border-radius:50%;touch-action:none;cursor:grab;transition:none}.bubble-shape{display:grid;place-items:center;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#ffcaa5,#e78750 36%,#ce6139 70%,#91452c);box-shadow:inset -12px -12px 24px #91452c22,0 19px 25px -14px #91452c33;color:#fff4dd}.bubble-glyph{display:block;font:italic 62px Georgia,serif}footer{margin-top:30px;font-size:13px;color:var(--muted)}[hidden]{display:none!important}html[data-reduced=true] button{transition:none}@media(prefers-reduced-motion:reduce){button{transition:none}}@media(max-width:740px){main{padding:28px 18px}.workflow,.grid{grid-template-columns:1fr}.wide{grid-column:auto}.panel{padding:20px}.audit-table{font-size:12px}}
+</style></head><body><main><header><span class="eyebrow">MOTION DIRECTOR / CODEX SKILL · 1.0</span><h1>先诊断，再设计。<br>用真实交互验证。</h1><p class="lead">保留已经清楚的反馈，改善对象交接、状态和连续操作。先决定哪里值得动，再选择动作。</p><span class="tag">默认：优化既有 UI</span> <span class="tag">按需：从零动效规划</span></header>
+<div class="workflow"><div class="step"><strong>01 发现</strong><small>扫描关键路径，区分已好、遗漏与过度。</small></div><div class="step"><strong>02 决策</strong><small>保留 / 增强 / 补充 / 减弱 / 移除 / 暂缓。</small></div><div class="step"><strong>03 验证</strong><small>看初段、中途、结束；检查快速输入与减少动效。</small></div></div>
+<section class="usage"><h2>在 Codex 里这样调用</h2><p>已有界面：默认保留布局、内容、品牌、业务和技术栈。</p><textarea id="prompt" readonly>$motion-director
+审查并优化这个项目的 UI 动效。保持现有布局、内容和品牌；先识别高价值问题与应该保留的行为，优先处理对象交接和连续操作，再实际运行验证。</textarea><div class="toolbar"><button id="copy-prompt">复制调用示例</button><span id="copy-state" aria-live="polite"></span></div></section>
+<section class="panel"><h2>“10处只改2处”如何判断？</h2><p>审查覆盖与动画数量分开。以下是决策示意，不是自动诊断或效果测量。</p><table class="audit-table"><thead><tr><th>现状</th><th>新版判断</th><th>下一步</th></tr></thead><tbody><tr><td>8处已有足够好的反馈，2处有断点</td><td>保留8处，针对性增强2处</td><td>验证这2处的实际改善</td></tr><tr><td>8处值得改善，只解决了2处</td><td>找出剩余6处及原因</td><td>改善发现、选择或执行</td></tr></tbody></table><div class="keep"><strong>可以保留静止</strong><p>不可点击的阅读卡片、高频表格、已清楚的原生焦点，都可以保留。组件名称不是强制加磁吸、弹跳或反复入场的理由。</p></div></section>
+<div class="tools"><h2>九类可运行范例</h2><label><input id="reduce-motion" type="checkbox">减少动效，保留功能</label></div><p>范例用于理解模式，不是无 / 有 skill 的独立生成对照。只选适合项目的机制与端点。</p>
+<section class="grid">
+<article class="panel"><div class="meta">01 / STABLE TARGET</div><h2>按压反馈，点击区不移动</h2><p>操作立即生效；仅内层短反馈。</p><div class="toolbar"><button id="press-button" class="press-button"><span class="face" id="press-face">完成操作 <span>↗</span></span></button><span id="press-count" class="status">完成 0 次</span></div><p class="rule">适用：反馈不足的真实操作。原生已清楚时可以保留。</p></article>
+<article class="panel"><div class="meta">02 / STATE IDENTITY</div><h2>同一图标，状态平滑变化</h2><p>收藏，或在过渡中快速取消。</p><div class="toolbar"><button id="heart-button" class="icon-button" aria-pressed="false" aria-label="收藏"><svg viewBox="0 0 32 32" aria-hidden="true"><path id="heart-outline" d="M16 27 4 15C-4 6 8-2 16 8 24-2 36 6 28 15Z" fill="none" stroke="#456c63" stroke-width="1.8"/><path id="heart-fill" class="heart-fill" d="M16 27 4 15C-4 6 8-2 16 8 24-2 36 6 28 15Z" fill="#d96c43"/></svg></button><span id="heart-status" aria-live="polite">未收藏</span><button id="heart-undo">恢复未收藏</button></div><p class="rule">这是填充过渡，不宣称通用形状 morph。静态 icon 不必摇摆。</p></article>
+<article class="panel"><div class="meta">03 / SPATIAL MARKER</div><h2>当前位置，可追踪</h2><p>快速切换；方向键、Home / End 也能操作。</p><div id="nav-host" class="tabs" role="tablist" aria-label="项目分类"><button id="tab-0" role="tab" aria-controls="panel-0" aria-selected="true">作品</button><button id="tab-1" role="tab" aria-controls="panel-1" aria-selected="false" tabindex="-1">过程</button><button id="tab-2" role="tab" aria-controls="panel-2" aria-selected="false" tabindex="-1">关于</button><span id="nav-indicator" class="indicator" aria-hidden="true"></span></div><div id="panel-0" role="tabpanel" tabindex="0" aria-labelledby="tab-0" class="tab-panel"><strong>精选作品</strong><p>先看关系，再看细节。</p></div><div id="panel-1" role="tabpanel" tabindex="0" aria-labelledby="tab-1" class="tab-panel" hidden><strong>设计过程</strong><p>目标、判断与验证。</p></div><div id="panel-2" role="tabpanel" tabindex="0" aria-labelledby="tab-2" class="tab-panel" hidden><strong>关于设计师</strong><p>用清楚的变化说明意图。</p></div><p class="rule">标记从当前呈现接续；选中语义与内容立即更新。</p></article>
+<article class="panel"><div class="meta">04 / CONTENT GROUP</div><h2>一组内容，一个短序列</h2><p>有阅读顺序才用错峰，总序列有上限。</p><div class="toolbar"><button id="replay-entry">重播一次入场</button></div><div id="entries" class="entries"><span class="entry">目的</span><span class="entry">状态</span><span class="entry">关系</span><span class="entry">动作</span><span class="entry">验证</span><span class="entry">稳定</span></div><p class="rule">重播仅用于演示。产品默认有意义地出现一次，不让长列表或控件排队等待。</p></article>
+<article class="panel wide"><div class="meta">05 / ANCHORED OBJECT</div><h2>打开详情，保留对象来源</h2><p>连续打开、返回或在中途按 Escape；图层保持身份，文字不跟着缩放。</p><div class="toolbar"><button id="detail-toggle" aria-expanded="false" aria-controls="detail-copy"><span data-label>查看项目</span> ↗</button><span class="status">隔离区域的锚定展开，项目中保留既有端点。</span></div><div id="detail-host" class="detail-stage"><div id="detail-surface" class="surface"><img id="detail-image" alt="海岸与群山的原创示意图" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5MDAgMzYwIj48cmVjdCBmaWxsPSIjYzBkM2Q3IiB3aWR0aD0iOTAwIiBoZWlnaHQ9IjM2MCIvPjxjaXJjbGUgZmlsbD0iI2U1YWQ3NCIgY3g9IjY5MCIgY3k9IjY1IiByPSI1NSIvPjxwYXRoIGZpbGw9IiM0Yjc5N2EiIGQ9Ik0wIDI2MCAyMTAgMTAgNDAwIDI4MCA1NjAgOTAgOTAwIDMxMFYzNjBIMFoiLz48cGF0aCBmaWxsPSIjMjAzZjQwIiBkPSJNMCAyOTBRMjUwIDE5MCA0NzAgMzIwVDkwMCAzMTBWMzYwSDBaIi8+PHBhdGggZmlsbD0iIzhlYWZhYiIgZD0iTTAgMzEwUTIwMCAyNDUgNDUwIDM1NUgwWiIvPjwvc3ZnPg=="><div class="card-title">海岸探索 / Coast</div><div id="detail-copy" class="details" hidden aria-hidden="true">同一项目的更多信息，保持清楚与可读。<br><a href="#workflow-end">查看使用原则</a></div></div></div><p class="rule">适用：对象有共享身份。不是跨文档导航；不按图片更大判体验更好。</p></article>
+<article class="panel"><div class="meta">06 / STABLE LIST IDENTITY</div><h2>筛选时，卡片身份保留</h2><p>快速换类别，不排队补播旧目标。</p><div class="toolbar"><button id="filter-all" data-filter="all" aria-pressed="true">全部</button><button id="filter-design" data-filter="design" aria-pressed="false">设计</button><button id="filter-nature" data-filter="nature" aria-pressed="false">自然</button></div><div id="tiles" class="tiles" role="list"><div id="tile-0" class="tile" data-category="design" role="listitem"><span class="swatch" style="background:#d9845e"></span><strong>字体</strong></div><div id="tile-1" class="tile" data-category="nature" role="listitem"><span class="swatch" style="background:#679589"></span><strong>海岸</strong></div><div id="tile-2" class="tile" data-category="design" role="listitem"><span class="swatch" style="background:#bbb084"></span><strong>界面</strong></div><div id="tile-3" class="tile" data-category="nature" role="listitem"><span class="swatch" style="background:#8a939e"></span><strong>森林</strong></div><div id="tile-4" class="tile" data-category="design" role="listitem"><span class="swatch" style="background:#6e9292"></span><strong>视觉</strong></div><div id="tile-5" class="tile" data-category="nature" role="listitem"><span class="swatch" style="background:#c5aa89"></span><strong>山谷</strong></div></div><p class="rule">固定节点；离场立即不可交互。槽位只是范例，生产项目适配现有布局。</p></article>
+<article class="panel"><div class="meta">07 / FACTUAL DATA</div><h2>真实数字立即更新</h2><p>图形短过渡，数字不虚构回弹。</p><div class="toolbar"><button id="chart-a">数据 A</button><button id="chart-b">数据 B</button></div><div class="chart-row"><span>发现</span><div class="track"><span id="chart-bar-0" class="bar" role="meter" aria-label="发现" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></span></div><span id="chart-value-0" class="value">0</span></div><div class="chart-row"><span>完成</span><div class="track"><span id="chart-bar-1" class="bar" role="meter" aria-label="完成" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></span></div><span id="chart-value-1" class="value">0</span></div><div class="chart-row"><span>返回</span><div class="track"><span id="chart-bar-2" class="bar" role="meter" aria-label="返回" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></span></div><span id="chart-value-2" class="value">0</span></div><p class="rule">固定域 0–100，数值是真实目标。装饰效果不能改变计时或进度。</p></article>
+<article class="panel"><div class="meta">08 / OPTIONAL BRAND MOMENT</div><h2>少量品牌磁吸</h2><p>仅精确指针，点击区保持稳定。</p><div class="toolbar"><button id="magnetic" class="magnetic"><span id="magnet-visual" class="magnet-visual"><span>探索作品</span><span id="magnet-icon" class="magnet-icon">↗</span></span></button></div><span id="brand-count" class="status">探索 0 次</span><p class="rule">低频核心 CTA 且品牌意图明确时才选。触屏、减少动效和高频操作不用磁吸。</p></article>
+<article class="panel"><div class="meta">09 / INPUT + MATERIAL</div><h2>操作跟手，材料有惯性</h2><p>拖动球体，方向键也能移动；松开回正。</p><div id="bubble-stage" class="bubble-stage"><button id="bubble" class="bubble" aria-label="可拖动的品牌球体，方向键移动，Escape 回正"><span id="bubble-shape" class="bubble-shape"><span id="bubble-glyph" class="bubble-glyph">m.</span></span></button></div><div class="toolbar"><button id="bubble-reset">回到原位</button><span id="bubble-status" class="status" aria-live="polite">等待操作</span></div><p class="rule">中心直接跟手，形变有界，文字不变形。这是二维材质近似，不是流体模拟。</p></article>
+</section><section class="keep" id="workflow-end"><strong>验证后再决定是否保留</strong><p>原生 App 需要工程与设备适配。行为通过不等于审美认证；正常速度观察、独立对照与成本记录都重要。</p><button id="destroy-patterns">卸载九个范例控制器</button> <span id="destroy-state" class="status">用于检查资源清理，重新加载可恢复。</span></section><footer>自定工程适配与起点，不代表各公司官方数值或认可。本页可离线打开，不依赖在线 CDN。</footer>
+</main><script type="module">// Original scalar analytic solver. A target is constant within each step.
+// Coordinates may be px, points, dp or normalized units; velocity is units/s.
+function springStep(state, target, dt, config) {
+  const {x, v} = state;
+  const {omega: w, zeta: z} = config;
+  if (![x, v, target, dt, w, z].every(Number.isFinite) || dt < 0 || w <= 0 || z < 0) {
+    throw new RangeError('Finite state; dt >= 0, omega > 0 and zeta >= 0 required');
+  }
+  if (dt === 0) return {x, v};
+  const y = x - target;
+  let nextY, nextV;
+  if (Math.abs(z - 1) < 1e-7) {
+    const e = Math.exp(-w * dt), b = v + w * y;
+    nextY = (y + b * dt) * e;
+    nextV = (v - w * b * dt) * e;
+  } else if (z < 1) {
+    const a = z * w, b = w * Math.sqrt(1 - z * z);
+    const c = Math.cos(b * dt), s = Math.sin(b * dt), e = Math.exp(-a * dt);
+    nextY = e * (y * c + (v + a * y) * s / b);
+    nextV = e * (v * c - (a * v + w * w * y) * s / b);
+  } else {
+    const h = Math.sqrt(z * z - 1);
+    const r1 = -w / (z + h), r2 = -w * (z + h);
+    const a = (v - r2 * y) / (r1 - r2), b = y - a;
+    const e1 = Math.exp(r1 * dt), e2 = Math.exp(r2 * dt);
+    nextY = a * e1 + b * e2;
+    nextV = r1 * a * e1 + r2 * b * e2;
+  }
+  return {x: target + nextY, v: nextV};
+}
+
+function exponentialFollow(x, target, rate, dt) {
+  if (![x, target, rate, dt].every(Number.isFinite) || rate < 0 || dt < 0) {
+    throw new RangeError('Finite inputs; rate and dt must be nonnegative');
+  }
+  return x + (target - x) * -Math.expm1(-rate * dt);
+}
+
+function isSettled(state, target, positionTolerance = 0.0001, velocityTolerance = 0.001) {
+  return Math.abs(state.x - target) <= positionTolerance && Math.abs(state.v) <= velocityTolerance;
+}
+
+function createPreference(){
+ const media=matchMedia('(prefers-reduced-motion: reduce)');let override=null;const listeners=new Set();
+ const notify=()=>listeners.forEach(fn=>fn(api.reduced));const api={get reduced(){return override===null?media.matches:override;},set(value){override=value===null?null:!!value;notify();},subscribe(fn){listeners.add(fn);return()=>listeners.delete(fn);},destroy(){media.removeEventListener('change',notify);listeners.clear();}};
+ media.addEventListener('change',notify);return api;
+}
+function createScope(pref){
+ const own=!pref;pref= pref||createPreference();const abort=new AbortController(),cleanups=[];
+ return {pref,get active(){return !abort.signal.aborted;},on(el,type,fn,opts={}){el.addEventListener(type,fn,{...opts,signal:abort.signal});},clean(fn){cleanups.push(fn);return fn;},destroy(){if(abort.signal.aborted)return;abort.abort();for(const fn of cleanups.splice(0))fn();if(own)pref.destroy();}};
+}
+function createSpring(initial,render,{pref,omega=30,zeta=1}={}){
+ const state=Object.fromEntries(Object.entries(initial).map(([k,x])=>[k,{x,v:0,target:x}]));let raf=0,last=0,disposed=false;
+ const values=()=>Object.fromEntries(Object.entries(state).map(([k,a])=>[k,a.x]));const paint=()=>{if(!disposed)render(values());};
+ const stop=()=>{cancelAnimationFrame(raf);raf=0;};
+ function snap(){stop();for(const a of Object.values(state)){a.x=a.target;a.v=0;}paint();}
+ function frame(t){raf=0;if(disposed)return;const dt=Math.max(0,(t-last)/1000);last=t;let active=false;
+  for(const a of Object.values(state)){Object.assign(a,springStep(a,a.target,dt,{omega,zeta}));if(isSettled(a,a.target,.0005,.01)){a.x=a.target;a.v=0;}else active=true;}paint();if(active)raf=requestAnimationFrame(frame);
+ }
+ function wake(){if(!raf&&!disposed){last=performance.now();raf=requestAnimationFrame(frame);}}
+ function validate(next){for(const [k,v] of Object.entries(next))if(!state[k]||!Number.isFinite(v))throw new RangeError('Known finite motion axes required');}
+ const off=pref?.subscribe(reduced=>{if(reduced)snap();});
+ const api={set(next,{immediate=false,velocity}={}){if(disposed)return;validate(next);for(const [k,v] of Object.entries(next)){state[k].target=v;if(velocity&&Number.isFinite(velocity[k]))state[k].v=velocity[k];}if(immediate||pref?.reduced)snap();else wake();},jump(next){if(disposed)return;validate(next);stop();for(const [k,v] of Object.entries(next)){state[k].x=state[k].target=v;state[k].v=0;}paint();},rebase(next){validate(next);for(const [k,v] of Object.entries(next))state[k].x=v;paint();},state(){return structuredClone(state);},stop,destroy(){if(disposed)return;stop();off?.();disposed=true;}};
+ paint();return api;
+}
+const effectOwners=new WeakMap();
+function cancelEffects(el){const owners=effectOwners.get(el);if(owners)for(const a of owners.values())a.cancel();owners?.clear();}
+function effectsTo(el,next,{duration=180,pref,easing='cubic-bezier(.2,0,0,1)'}={}){
+ let owners=effectOwners.get(el);if(!owners){owners=new Map();effectOwners.set(el,owners);}
+ const promises=Object.entries(next).map(([property,target])=>{
+  const current=getComputedStyle(el)[property];owners.get(property)?.cancel();el.style[property]=current;
+  if(pref?.reduced||duration===0){el.style[property]=String(target);return Promise.resolve(true);}
+  const a=el.animate([{[property]:current},{[property]:String(target)}],{duration,easing,fill:'both'});owners.set(property,a);
+  const off=pref?.subscribe(reduced=>{if(reduced&&owners.get(property)===a)a.finish();});
+  return a.finished.then(()=>{if(owners.get(property)!==a)return false;el.style[property]=String(target);owners.delete(property);a.cancel();return true;},()=>false).finally(()=>off?.());
+ });return Promise.all(promises).then(results=>results.every(Boolean));
+}
+const clamp=(v,min,max)=>Math.max(min,Math.min(max,v));
+
+// One isolated visual surface, unchanged image identity; text never scales with it.
+function mountAnchoredDetail({host,surface,image,details,toggle,pref,endpoints}){
+ const scope=createScope(pref);let expanded=false,epoch=0;const getTarget=()=>endpoints(expanded,host);
+ const motion=createSpring(getTarget(),v=>{surface.style.left=v.x+'px';surface.style.top=v.y+'px';surface.style.width=v.w+'px';surface.style.height=v.h+'px';image.style.height=v.artH+'px';},{pref:scope.pref});
+ function set(value,{restoreFocus=false}={}){if(!scope.active)return;expanded=!!value;const token=++epoch;toggle.setAttribute('aria-expanded',String(expanded));toggle.querySelector('[data-label]').textContent=expanded?'返回项目':'查看项目';surface.dataset.state=expanded?'expanded':'compact';details.inert=!expanded;details.setAttribute('aria-hidden',String(!expanded));
+  if(expanded)details.hidden=false;motion.set(getTarget());effectsTo(details,{opacity:expanded?1:0},{duration:170,pref:scope.pref}).then(finished=>{if(finished&&scope.active&&token===epoch&&!expanded)details.hidden=true;});if(scope.pref.reduced)details.hidden=!expanded;if(restoreFocus)toggle.focus({preventScroll:true});
+ }
+ scope.on(toggle,'click',()=>set(!expanded));const escape=e=>{if(e.key==='Escape'&&expanded){e.preventDefault();set(false,{restoreFocus:true});}};scope.on(host,'keydown',escape);scope.on(toggle,'keydown',escape);
+ scope.clean(scope.pref.subscribe(()=>set(expanded)));const observer=new ResizeObserver(()=>{if(scope.active)motion.set(getTarget());});observer.observe(host);scope.clean(()=>observer.disconnect());scope.clean(()=>{epoch++;motion.destroy();cancelEffects(details);});set(false);
+ return {set,destroy:()=>scope.destroy()};
+}
+
+// Optional low-frequency brand moment; the button hit box stays fixed. Fine pointer only.
+function mountBrandMagnet({button,visual,icon,pref,limit=6}){
+ const scope=createScope(pref),fine=matchMedia('(pointer: fine)');
+ const motion=createSpring({x:0,y:0},v=>{visual.style.transform=`translate(${v.x}px,${v.y}px)`;icon.style.transform=`translate(${v.x*.35}px,${v.y*.35}px)`;},{pref:scope.pref,omega:24,zeta:.85});
+ const home=()=>motion.set({x:0,y:0});scope.on(button,'pointermove',e=>{if(scope.pref.reduced||!fine.matches||e.pointerType==='touch')return;const r=button.getBoundingClientRect();motion.set({x:clamp((e.clientX-r.left-r.width/2)/r.width*limit*2,-limit,limit),y:clamp((e.clientY-r.top-r.height/2)/r.height*limit*2,-limit,limit)});});
+ scope.on(button,'pointerleave',home);scope.on(button,'pointercancel',home);scope.on(button,'blur',home);scope.on(window,'blur',home);scope.on(fine,'change',home);scope.clean(scope.pref.subscribe(home));scope.clean(()=>{motion.jump({x:0,y:0});motion.destroy();});return {destroy:()=>scope.destroy()};
+}
+
+// Numbers are factual immediately; only the bar presentation interpolates, within a fixed domain.
+function mountDataChart({bars,labels,pref,domain=100}){
+ const scope=createScope(pref);let values=bars.map(()=>0);
+ function set(next){if(!scope.active)return;if(next.length!==bars.length||next.some(v=>!Number.isFinite(v)||v<0||v>domain))throw new RangeError('Data must be finite and inside the declared domain');values=[...next];bars.forEach((bar,i)=>{labels[i].textContent=String(values[i]);bar.setAttribute('aria-valuenow',String(values[i]));effectsTo(bar,{width:`${values[i]/domain*100}%`},{duration:260,pref:scope.pref});});}
+ scope.clean(scope.pref.subscribe(()=>set(values)));scope.clean(()=>bars.forEach(cancelEffects));return {set,destroy:()=>scope.destroy()};
+}
+
+// One short content-group sequence. Use once for meaningful appearance; replay is a lab control.
+function mountGroupEntry({items,pref,duration=320,interval=45,maxLastStart=180}){
+ const scope=createScope(pref);let animations=[],played=false;
+ const cancel=()=>{animations.forEach(a=>a.cancel());animations=[];};
+ function play({replay=false}={}){if(!scope.active)return;if(played&&!replay)return;played=true;cancel();if(scope.pref.reduced)return;animations=items.map((el,i)=>{const a=el.animate([{opacity:0,transform:'translateY(8px)'},{opacity:1,transform:'translateY(0px)'}],{duration,delay:Math.min(i*interval,maxLastStart),easing:'cubic-bezier(.2,0,0,1)',fill:'backwards'});a.finished.catch(()=>{});return a;});}
+ scope.clean(scope.pref.subscribe(reduced=>{if(reduced)cancel();}));scope.clean(cancel);return {play,destroy:()=>scope.destroy()};
+}
+
+// Same SVG identity, outline-to-fill. Not a universal path-morph implementation.
+function mountIconState({button,filled,status,pref,onChange}){
+ const scope=createScope(pref);let selected=button.getAttribute('aria-pressed')==='true';
+ function set(value){if(!scope.active)return;selected=!!value;button.setAttribute('aria-pressed',String(selected));button.setAttribute('aria-label',selected?'取消收藏':'收藏');if(status)status.textContent=selected?'已收藏':'未收藏';effectsTo(filled,{opacity:selected?1:0},{duration:180,pref:scope.pref});}
+ scope.on(button,'click',()=>{set(!selected);onChange?.(selected);});scope.clean(scope.pref.subscribe(()=>set(selected)));scope.clean(()=>{cancelEffects(filled);filled.style.opacity=selected?'1':'0';});set(selected);
+ return {set,get selected(){return selected;},destroy:()=>scope.destroy()};
+}
+
+// Isolated grid slots demonstrate retained identity/x/v. Adapt existing framework layout in products.
+function mountIdentityList({host,items,filters,pref,columns=3,gap=12}){
+ const scope=createScope(pref);let selected=host.dataset.filter||filters.find(b=>b.getAttribute('aria-pressed')==='true')?.dataset.filter||'all',epochs=new Map(),initialized=false;const rowHeight=104;
+ const controllers=items.map((el,i)=>createSpring({x:0,y:0},v=>{el.style.transform=`translate(${v.x}px,${v.y}px)`;},{pref:scope.pref}));
+ function apply(){if(!scope.active)return;let slot=0;const width=(host.clientWidth-gap*(columns-1))/columns;
+  items.forEach((el,i)=>{const active=selected==='all'||el.dataset.category===selected;const epoch=(epochs.get(el)||0)+1;epochs.set(el,epoch);el.style.width=width+'px';el.inert=!active;el.setAttribute('aria-hidden',String(!active));el.style.pointerEvents=active?'':'none';if(active){el.hidden=false;controllers[i].set({x:(slot%columns)*(width+gap),y:Math.floor(slot/columns)*(rowHeight+gap)},{immediate:!initialized});slot++;}
+   effectsTo(el,{opacity:active?1:0},{duration:initialized?150:0,pref:scope.pref}).then(finished=>{if(finished&&scope.active&&epochs.get(el)===epoch&&!active)el.hidden=true;});if(scope.pref.reduced)el.hidden=!active;
+  });filters.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.filter===selected)));host.dataset.filter=selected;initialized=true;
+ }
+ function filter(value){if(!scope.active)return;if(!['all',...items.map(x=>x.dataset.category)].includes(value))throw new RangeError('Unknown filter');selected=value;apply();}
+ filters.forEach(button=>scope.on(button,'click',()=>filter(button.dataset.filter)));const observer=new ResizeObserver(()=>{if(scope.active)apply();});observer.observe(host);scope.clean(()=>observer.disconnect());scope.clean(scope.pref.subscribe(apply));scope.clean(()=>{controllers.forEach(c=>c.destroy());items.forEach(cancelEffects);});apply();
+ return {filter,destroy:()=>scope.destroy()};
+}
+
+// Tabs with a movable indicator. Keep full keyboard and panel semantics when integrating.
+function mountNavigation({host,tabs,panels,indicator,pref}){
+ const scope=createScope(pref);let index=Math.max(0,tabs.findIndex(t=>t.getAttribute('aria-selected')==='true'));
+ const position=i=>{const a=tabs[i].getBoundingClientRect(),b=host.getBoundingClientRect();return{x:a.left-b.left,w:a.width};};
+ const motion=createSpring(position(index),({x,w})=>{indicator.style.transform=`translateX(${x}px)`;indicator.style.width=`${w}px`;},{pref:scope.pref});
+ function select(i,focus=false){if(!scope.active)return;index=(i+tabs.length)%tabs.length;tabs.forEach((tab,n)=>{tab.setAttribute('aria-selected',String(n===index));tab.tabIndex=n===index?0:-1;panels[n].hidden=n!==index;effectsTo(tab,{color:n===index?'#143d3b':'#697674'},{duration:150,pref:scope.pref});});motion.set(position(index));if(focus)tabs[index].focus();}
+ tabs.forEach((tab,i)=>{scope.on(tab,'click',()=>select(i));scope.on(tab,'keydown',e=>{const offset={ArrowRight:1,ArrowLeft:-1}[e.key];if(offset!==undefined){e.preventDefault();select(index+offset,true);}else if(e.key==='Home'||e.key==='End'){e.preventDefault();select(e.key==='Home'?0:tabs.length-1,true);}});});
+ const observer=new ResizeObserver(()=>{if(scope.active)motion.set(position(index));});observer.observe(host);scope.clean(()=>observer.disconnect());scope.clean(()=>{motion.destroy();tabs.forEach(cancelEffects);});select(index);
+ return {select,destroy:()=>scope.destroy()};
+}
+
+// Stable hit area; only the nested presentation face scales. Business clicks remain native.
+function mountPress({button,face,pref}){
+ const scope=createScope(pref);let pointer=null,key=null,inside=true;
+ const motion=createSpring({scale:1},({scale})=>{face.style.transform=`scale(${scale})`;},{pref:scope.pref,omega:36});
+ const update=()=>{const pressed=(pointer!==null&&inside)||key!==null;button.dataset.pressed=String(pressed);motion.set({scale:scope.pref.reduced?1:(pressed ? .975 : 1)});};
+ const release=()=>{pointer=null;key=null;update();};
+ scope.on(button,'pointerdown',e=>{if(e.button!==0||!e.isPrimary||button.disabled)return;pointer=e.pointerId;inside=true;update();});
+ for(const type of ['pointerup','pointercancel'])scope.on(window,type,e=>{if(e.pointerId===pointer){pointer=null;update();}});
+ scope.on(button,'pointerleave',()=>{inside=false;update();});scope.on(button,'pointerenter',()=>{inside=true;update();});
+ scope.on(button,'keydown',e=>{if((e.key===' '||e.key==='Enter')&&!button.disabled){key=e.key;update();}});
+ scope.on(button,'keyup',e=>{if(e.key===key){key=null;update();}});scope.on(button,'blur',release);scope.on(window,'blur',release);
+ scope.clean(scope.pref.subscribe(update));scope.clean(()=>{release();motion.jump({scale:1});motion.destroy();});
+ return {destroy:()=>scope.destroy()};
+}
+
+// Direct-input center + bounded 2D material approximation. Neither fluid nor collision simulation.
+function mountSoftDrag({button,shape,glyph,stage,status,pref}){
+ const scope=createScope(pref);let pointer=null,keyHeld=false,grabX=0,grabY=0,lastX=0,lastY=0,lastTime=0,vx=0,vy=0,restTimer=0;
+ const center=createSpring({x:0,y:0},v=>{button.style.transform=`translate(${v.x}px,${v.y}px)`;},{pref:scope.pref,omega:18,zeta:.8});
+ const material=createSpring({stretch:0,angle:0,contact:1},v=>{const s=clamp(v.stretch,0,.06),c=clamp(v.contact,.96,1),a=clamp(v.angle,-12,12),sx=(1+s)*c,sy=c/(1+s);shape.style.transform=`rotate(${a}deg) scale(${sx},${sy})`;glyph.style.transform=`scale(${1/sx},${1/sy}) rotate(${-a}deg)`;},{pref:scope.pref,omega:24,zeta:.84});
+ const position=()=>{const s=center.state();return{x:s.x.x,y:s.y.x};};
+ const bounds=(x,y)=>{const radius=button.offsetWidth/2,top=65;return{x:clamp(x,-stage.clientWidth/2+radius+6,stage.clientWidth/2-radius-6),y:clamp(y,6-top,stage.clientHeight-top-button.offsetHeight-6)};};
+ const decorate=()=>{material.set(scope.pref.reduced?{stretch:0,angle:0,contact:1}:{stretch:Math.min(.06,Math.hypot(vx,vy)/16000),angle:clamp(vx/90,-11,11),contact:(pointer!==null||keyHeld)?.965:1});clearTimeout(restTimer);restTimer=setTimeout(()=>{if(scope.active&&(pointer!==null||keyHeld))material.set({stretch:0,angle:0,contact:scope.pref.reduced?1:.965});},90);};
+ function release(cancelled=false){clearTimeout(restTimer);const id=pointer;pointer=null;keyHeld=false;if(id!==null&&button.hasPointerCapture(id))button.releasePointerCapture(id);const fresh=performance.now()-lastTime<90;center.set({x:0,y:0},{velocity:{x:cancelled||!fresh?0:clamp(vx,-800,800),y:cancelled||!fresh?0:clamp(vy,-800,800)}});material.set({stretch:0,angle:0,contact:1});button.style.cursor='grab';if(status)status.textContent='回到原位';}
+ function reset(){release(true);center.jump({x:0,y:0});material.jump({stretch:0,angle:0,contact:1});}
+ scope.on(button,'pointerdown',e=>{if(e.button!==0||!e.isPrimary||pointer!==null)return;e.preventDefault();button.focus({preventScroll:true});const p=position();center.stop();pointer=e.pointerId;keyHeld=false;button.setPointerCapture(pointer);grabX=e.clientX-p.x;grabY=e.clientY-p.y;lastX=p.x;lastY=p.y;lastTime=performance.now();vx=vy=0;button.style.cursor='grabbing';decorate();});
+ scope.on(button,'pointermove',e=>{if(e.pointerId!==pointer)return;const p=bounds(e.clientX-grabX,e.clientY-grabY),now=performance.now(),dt=Math.max(.001,(now-lastTime)/1000);vx=clamp((p.x-lastX)/dt,-1200,1200);vy=clamp((p.y-lastY)/dt,-1200,1200);lastX=p.x;lastY=p.y;lastTime=now;center.jump(p);decorate();});
+ scope.on(button,'pointerup',e=>{if(e.pointerId===pointer)release();});scope.on(button,'pointercancel',e=>{if(e.pointerId===pointer)release(true);});scope.on(button,'lostpointercapture',()=>{if(pointer!==null)release(true);});
+ const keys={ArrowLeft:[-24,0],ArrowRight:[24,0],ArrowUp:[0,-24],ArrowDown:[0,24]};scope.on(button,'keydown',e=>{if(keys[e.key]){e.preventDefault();if(pointer!==null)release(true);keyHeld=true;const p=position(),[dx,dy]=keys[e.key];center.jump(bounds(p.x+dx,p.y+dy));vx=dx*8;vy=dy*8;lastTime=performance.now();decorate();}else if(e.key==='Escape'){e.preventDefault();reset();}});scope.on(button,'keyup',e=>{if(keys[e.key]&&keyHeld){e.preventDefault();release();}});scope.on(button,'blur',()=>{if(pointer!==null||keyHeld)release(true);});scope.on(window,'blur',()=>{if(pointer!==null||keyHeld)release(true);});scope.on(document,'visibilitychange',()=>{if(document.hidden)reset();});
+ scope.clean(scope.pref.subscribe(reduced=>{if(reduced){clearTimeout(restTimer);const current=position();if(pointer!==null||keyHeld)center.jump(current);else center.jump({x:0,y:0});material.jump({stretch:0,angle:0,contact:1});}else if(pointer!==null||keyHeld)decorate();}));
+ const observer=new ResizeObserver(()=>{if(scope.active)center.jump(bounds(position().x,position().y));});observer.observe(stage);scope.clean(()=>observer.disconnect());scope.clean(()=>{reset();center.destroy();material.destroy();});return {reset:()=>{if(scope.active)reset();},destroy:()=>scope.destroy()};
+}
+
+const $=id=>document.getElementById(id),pref=createPreference(),handles=[];
+const checkbox=$('reduce-motion');checkbox.checked=pref.reduced;document.documentElement.dataset.reduced=String(pref.reduced);
+pref.subscribe(value=>{document.documentElement.dataset.reduced=String(value);checkbox.checked=value;});
+checkbox.addEventListener('change',()=>pref.set(checkbox.checked));
+let pressCount=0,brandCount=0;
+$('press-button').addEventListener('click',()=>{$('press-count').textContent='完成 '+(++pressCount)+' 次';});
+$('magnetic').addEventListener('click',()=>{$('brand-count').textContent='探索 '+(++brandCount)+' 次';});
+handles.push(mountPress({button:$('press-button'),face:$('press-face'),pref}));
+const heart=mountIconState({button:$('heart-button'),filled:$('heart-fill'),status:$('heart-status'),pref});handles.push(heart);
+$('heart-undo').addEventListener('click',()=>heart.set(false));
+handles.push(mountNavigation({host:$('nav-host'),tabs:[0,1,2].map(i=>$('tab-'+i)),panels:[0,1,2].map(i=>$('panel-'+i)),indicator:$('nav-indicator'),pref}));
+const entries=mountGroupEntry({items:[...document.querySelectorAll('.entry')],pref});handles.push(entries);
+$('replay-entry').addEventListener('click',()=>entries.play({replay:true}));
+handles.push(mountAnchoredDetail({host:$('detail-host'),surface:$('detail-surface'),image:$('detail-image'),details:$('detail-copy'),toggle:$('detail-toggle'),pref,endpoints:(expanded,host)=>expanded?{x:16,y:12,w:host.clientWidth-32,h:334,artH:210}:{x:16,y:24,w:Math.min(240,host.clientWidth-32),h:266,artH:180}}));
+handles.push(mountIdentityList({host:$('tiles'),items:[...document.querySelectorAll('.tile')],filters:[...document.querySelectorAll('[data-filter]')],pref}));
+const chart=mountDataChart({bars:[0,1,2].map(i=>$('chart-bar-'+i)),labels:[0,1,2].map(i=>$('chart-value-'+i)),pref});handles.push(chart);
+chart.set([30,68,42]);$('chart-a').addEventListener('click',()=>chart.set([30,68,42]));$('chart-b').addEventListener('click',()=>chart.set([80,40,90]));
+handles.push(mountBrandMagnet({button:$('magnetic'),visual:$('magnet-visual'),icon:$('magnet-icon'),pref}));
+const bubble=mountSoftDrag({button:$('bubble'),shape:$('bubble-shape'),glyph:$('bubble-glyph'),stage:$('bubble-stage'),status:$('bubble-status'),pref});handles.push(bubble);
+$('bubble-reset').addEventListener('click',()=>bubble.reset());
+$('destroy-patterns').addEventListener('click',()=>{handles.forEach(h=>h.destroy());$('destroy-state').textContent='九个范例控制器已卸载，订阅与观察器已释放。';});
+$('copy-prompt').addEventListener('click',async()=>{const field=$('prompt');try{await navigator.clipboard.writeText(field.value);$('copy-state').textContent='已复制';}catch{field.focus();field.select();$('copy-state').textContent='已选中，可直接复制';}});
+document.documentElement.dataset.labReady='true';
+</script></body></html>

@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import {deriveContact} from '../assets/runtime/input-state.mjs';
+import {runLayoutTransaction,measureWithoutOwnedTranslation} from '../assets/runtime/layout-transaction.mjs';
+assert.deepEqual(deriveContact({focused:true,pointerInside:false,focusVisible:false}),{contact:false,pressed:false},'Logical pointer focus alone cannot latch exploration');
+assert.equal(deriveContact({focusVisible:true}).contact,true,'Keyboard positioning keeps feedback');
+assert.equal(deriveContact({pointerInside:true,pressed:true,suspended:true}).contact,false,'Covered controls cannot keep stale exploration');
+assert.equal(deriveContact({pointerInside:true,disabled:true}).pressed,false);
+const stages=[];runLayoutTransaction({read(){stages.push('read');return 7;},commit(before){assert.equal(before,7);stages.push('commit');return 9;},invert(before,value){assert.equal(value,9);stages.push('inverse');}});assert.deepEqual(stages,['read','commit','inverse']);
+assert.throws(()=>runLayoutTransaction({read:()=>0,commit:async()=>{},invert(){}}),TypeError,'An async commit exposes wrong frames');
+assert.throws(()=>runLayoutTransaction({read:()=>Promise.resolve(0),commit(){},invert(){}}),TypeError,'Thenable reads cannot leak into the layout commit');
+const fake={style:{translate:'0 28px'},getBoundingClientRect(){assert.equal(this.style.translate,'none');return {height:240};}};assert.equal(measureWithoutOwnedTranslation(fake).height,240);assert.equal(fake.style.translate,'0 28px');
+fake.getBoundingClientRect=()=>{throw Error('layout measurement failed');};assert.throws(()=>measureWithoutOwnedTranslation(fake));assert.equal(fake.style.translate,'0 28px','Measurement failure must still restore presentation');
+console.log('PASS: focus/contact distinction, suspension, atomic stage order, async rejection, owned-translation restoration. DOM/CSS behavior still requires browser checks.');

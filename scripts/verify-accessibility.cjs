@@ -1,0 +1,22 @@
+const galleryURL=new URL(process.env.MOTION_GALLERY_URL || 'http://127.0.0.1:8765/assets/gallery/index.html'); if(!['http:','https:'].includes(galleryURL.protocol)||!['localhost','127.0.0.1','[::1]'].includes(galleryURL.hostname))throw new Error('Local gallery HTTP URL required');
+const fs=require('node:fs/promises'),path=require('node:path');const {chromium}=require(process.env.PLAYWRIGHT_MODULE || 'playwright');
+(async()=>{const browser=await chromium.launch({headless:true}),page=await browser.newPage({viewport:{width:1280,height:900}}),tests=[],errors=[];page.on('pageerror',e=>errors.push(e.message));
+const url=galleryURL.href;const reset=async()=>{await page.goto(url);await page.waitForSelector('[data-gallery-ready=true]');await page.waitForTimeout(550);};
+const add=(name,pass,detail)=>{tests.push({name,status:pass?'pass':'fail',detail});console.log(name+': '+(pass?'pass':'fail'));};
+try{
+ await reset();
+ for(const id of ['n1','n2']){const tabs=page.locator('#'+id+' [role=tab]');await tabs.nth(0).focus();await page.keyboard.press('End');add(id+' keyboard End',await tabs.nth(2).getAttribute('aria-selected')==='true'&&await tabs.nth(2).evaluate(e=>document.activeElement===e));await page.keyboard.press('Home');add(id+' keyboard Home',await tabs.nth(0).getAttribute('aria-selected')==='true');}
+ for(const id of ['n3','c4','t3','t4','i2','i3']){const b=page.locator('#'+id+' [data-main],#'+id+' [data-toggle]');await b.click();await page.keyboard.press('Escape');await page.waitForTimeout(400);add(id+' Escape restores focus and closes',await b.getAttribute('aria-expanded')==='false'&&await b.evaluate(e=>document.activeElement===e));}
+ for(const id of ['b2','c1','c2','t2','t3','t5','d2','d5']){
+  await reset();const root=page.locator('#'+id),control=root.locator('[data-main]');await root.scrollIntoViewIfNeeded();if(['b2','c1','c2'].includes(id))await control.focus();else await control.click();await page.waitForTimeout(25);await page.emulateMedia({reducedMotion:'reduce'});await page.waitForTimeout(50);
+  const sample=()=>root.evaluate(e=>[...e.querySelectorAll('*')].map(x=>{const s=getComputedStyle(x);return [s.transform,s.opacity,s.width,s.height,x.getAttribute('d')].join('|');}).join(';'));
+  const a=await sample();await page.waitForTimeout(90);const b=await sample();add(id+' dynamic reduced motion settles',a===b);
+  if(['b2','c1','c2'].includes(id)){const target=root.locator(id==='b2'||id==='c1'?'.arrow':'.art');const transform=await target.evaluate(e=>getComputedStyle(e).transform);add(id+' decorative transform removed',await target.evaluate(e=>{const t=getComputedStyle(e).transform;return t==='none'||new DOMMatrix(t).isIdentity;}),transform);}
+  await page.emulateMedia({reducedMotion:'no-preference'});
+ }
+ await reset();await page.setViewportSize({width:390,height:844});await page.waitForTimeout(550);add('Mobile viewport has no horizontal overflow',await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await page.setViewportSize({width:1280,height:900});
+ await reset();const callback=()=>page.locator('#b4 [data-main]').click();await callback();await page.locator('#b4 [data-fail]').click();await page.waitForTimeout(500);add('Async latest failure wins over earlier success',await page.locator('#b4 .demo').getAttribute('data-state')==='error');
+ await page.locator('#i5 [data-main]').click();await page.locator('#unmount').click();const before=await page.locator('#i5 [data-status]').textContent();await page.waitForTimeout(600);add('Unmount cancels pending simulated result',before===await page.locator('#i5 [data-status]').textContent());
+ add('No runtime errors',errors.length===0,errors);
+ await reset();await page.screenshot({path:path.resolve(process.env.MOTION_DESKTOP_SCREENSHOT || 'gallery-desktop.png')});await page.setViewportSize({width:390,height:844});await page.screenshot({path:path.resolve(process.env.MOTION_MOBILE_SCREENSHOT || 'gallery-mobile.png')});
+}finally{await browser.close();const report={scope:'Keyboard navigation, Escape, dynamic reduced motion, mobile overflow, async race and disposal; no native performance claims',tests,summary:{passed:tests.filter(x=>x.status==='pass').length,total:tests.length}};report.status=report.summary.passed===report.summary.total?'pass':'fail';await fs.writeFile(path.resolve(process.env.MOTION_REPORT || 'accessibility-validation.json'),JSON.stringify(report,null,2));process.exitCode=report.status==='pass'?0:1;}})().catch(e=>{console.error(e);process.exitCode=1;});

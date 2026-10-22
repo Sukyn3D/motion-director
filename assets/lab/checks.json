@@ -1,0 +1,711 @@
+{
+  "ready": "html[data-lab-ready=\"true\"]",
+  "tests": [
+    {
+      "name": "press-pointer",
+      "setup": [
+        {
+          "type": "hover",
+          "selector": "#press-button"
+        }
+      ],
+      "steps": [
+        {
+          "type": "down"
+        }
+      ],
+      "probes": [
+        {
+          "selector": "#press-face",
+          "motion": true
+        },
+        {
+          "selector": "#press-button",
+          "stable": true
+        }
+      ],
+      "after": [
+        {
+          "type": "up"
+        }
+      ],
+      "final": [
+        {
+          "selector": "#press-count",
+          "text": "完成 1 次"
+        }
+      ]
+    },
+    {
+      "name": "press-keyboard",
+      "setup": [
+        {
+          "type": "focus",
+          "selector": "#press-button"
+        }
+      ],
+      "steps": [
+        {
+          "type": "keydown",
+          "key": "Space"
+        }
+      ],
+      "probes": [
+        {
+          "selector": "#press-face",
+          "motion": true
+        }
+      ],
+      "after": [
+        {
+          "type": "keyup",
+          "key": "Space"
+        }
+      ],
+      "final": [
+        {
+          "selector": "#press-count",
+          "text": "完成 1 次"
+        }
+      ]
+    },
+    {
+      "name": "press-reduced",
+      "reduced": true,
+      "setup": [
+        {
+          "type": "hover",
+          "selector": "#press-button"
+        }
+      ],
+      "steps": [
+        {
+          "type": "down"
+        }
+      ],
+      "probes": [
+        {
+          "selector": "#press-face",
+          "motion": false
+        }
+      ],
+      "after": [
+        {
+          "type": "up"
+        }
+      ],
+      "final": [
+        {
+          "selector": "#press-count",
+          "text": "完成 1 次"
+        }
+      ]
+    },
+    {
+      "name": "icon-state",
+      "steps": [
+        {
+          "type": "click",
+          "selector": "#heart-button"
+        }
+      ],
+      "probes": [
+        {
+          "selector": "#heart-fill",
+          "property": "opacity",
+          "motion": true
+        }
+      ],
+      "identity": [
+        "#heart-fill"
+      ],
+      "immediate": [
+        {
+          "selector": "#heart-button",
+          "attr": "aria-pressed",
+          "value": true
+        }
+      ],
+      "final": [
+        {
+          "selector": "#heart-fill",
+          "style": "opacity",
+          "number": 1
+        }
+      ]
+    },
+    {
+      "name": "icon-rapid-return",
+      "steps": [
+        {
+          "type": "click",
+          "selector": "#heart-button"
+        },
+        {
+          "type": "wait",
+          "ms": 45
+        },
+        {
+          "type": "click",
+          "selector": "#heart-button"
+        },
+        {
+          "type": "click",
+          "selector": "#heart-button"
+        },
+        {
+          "type": "click",
+          "selector": "#heart-button"
+        }
+      ],
+      "identity": [
+        "#heart-fill"
+      ],
+      "final": [
+        {
+          "selector": "#heart-button",
+          "attr": "aria-pressed",
+          "value": false
+        },
+        {
+          "selector": "#heart-fill",
+          "style": "opacity",
+          "number": 0
+        }
+      ]
+    },
+    {
+      "name": "navigation-keyboard",
+      "setup": [
+        {
+          "type": "focus",
+          "selector": "#tab-0"
+        }
+      ],
+      "steps": [
+        {
+          "type": "key",
+          "key": "End"
+        }
+      ],
+      "probes": [
+        {
+          "selector": "#nav-indicator",
+          "axis": "x",
+          "motion": true
+        }
+      ],
+      "immediate": [
+        {
+          "selector": "#tab-2",
+          "attr": "aria-selected",
+          "value": true
+        },
+        {
+          "selector": "#panel-2",
+          "hidden": false
+        }
+      ],
+      "after": [
+        {
+          "type": "key",
+          "key": "Tab"
+        }
+      ],
+      "final": [
+        {
+          "selector": "#panel-2",
+          "focus": true
+        }
+      ]
+    },
+    {
+      "name": "navigation-reduced",
+      "reduced": true,
+      "steps": [
+        {
+          "type": "click",
+          "selector": "#tab-2"
+        }
+      ],
+      "probes": [
+        {
+          "selector": "#nav-indicator",
+          "axis": "x",
+          "motion": false
+        }
+      ],
+      "final": [
+        {
+          "selector": "#tab-2",
+          "attr": "aria-selected",
+          "value": true
+        },
+        {
+          "selector": "#panel-2",
+          "hidden": false
+        }
+      ]
+    },
+    {
+      "name": "anchored-detail",
+      "steps": [
+        {
+          "type": "click",
+          "selector": "#detail-toggle"
+        }
+      ],
+      "probes": [
+        {
+          "selector": "#detail-surface",
+          "axis": "w",
+          "motion": true
+        }
+      ],
+      "identity": [
+        "#detail-image"
+      ],
+      "immediate": [
+        {
+          "selector": "#detail-toggle",
+          "attr": "aria-expanded",
+          "value": true
+        },
+        {
+          "selector": "#detail-copy",
+          "inert": false
+        }
+      ],
+      "after": [
+        {
+          "type": "key",
+          "key": "Escape"
+        }
+      ],
+      "final": [
+        {
+          "selector": "#detail-toggle",
+          "attr": "aria-expanded",
+          "value": false
+        },
+        {
+          "selector": "#detail-copy",
+          "hidden": true
+        },
+        {
+          "selector": "#detail-toggle",
+          "focus": true
+        }
+      ]
+    },
+    {
+      "name": "detail-rapid-latest",
+      "steps": [
+        {
+          "type": "click",
+          "selector": "#detail-toggle"
+        },
+        {
+          "type": "wait",
+          "ms": 40
+        },
+        {
+          "type": "click",
+          "selector": "#detail-toggle"
+        },
+        {
+          "type": "click",
+          "selector": "#detail-toggle"
+        }
+      ],
+      "identity": [
+        "#detail-image"
+      ],
+      "final": [
+        {
+          "selector": "#detail-toggle",
+          "attr": "aria-expanded",
+          "value": true
+        },
+        {
+          "selector": "#detail-copy",
+          "hidden": false
+        },
+        {
+          "selector": "#detail-copy",
+          "style": "opacity",
+          "number": 1
+        }
+      ]
+    },
+    {
+      "name": "list-identity",
+      "steps": [
+        {
+          "type": "click",
+          "selector": "#filter-nature"
+        }
+      ],
+      "probes": [
+        {
+          "selector": "#tile-3",
+          "axis": "y",
+          "motion": true
+        }
+      ],
+      "identity": [
+        "#tile-1",
+        "#tile-3",
+        "#tile-5"
+      ],
+      "immediate": [
+        {
+          "selector": "#tile-0",
+          "inert": true
+        }
+      ],
+      "final": [
+        {
+          "selector": "#tile-0",
+          "hidden": true
+        },
+        {
+          "selector": "#tile-1",
+          "hidden": false
+        }
+      ]
+    },
+    {
+      "name": "list-reduced-latest",
+      "reduced": true,
+      "steps": [
+        {
+          "type": "click",
+          "selector": "#filter-nature"
+        },
+        {
+          "type": "click",
+          "selector": "#filter-design"
+        }
+      ],
+      "probes": [
+        {
+          "selector": "#tile-2",
+          "axis": "x",
+          "motion": false
+        }
+      ],
+      "final": [
+        {
+          "selector": "#tiles",
+          "attr": "data-filter",
+          "value": "design"
+        },
+        {
+          "selector": "#tile-1",
+          "hidden": true
+        },
+        {
+          "selector": "#tile-2",
+          "hidden": false
+        }
+      ]
+    },
+    {
+      "name": "data-factual",
+      "steps": [
+        {
+          "type": "click",
+          "selector": "#chart-b"
+        }
+      ],
+      "probes": [
+        {
+          "selector": "#chart-bar-0",
+          "axis": "w",
+          "motion": true
+        }
+      ],
+      "immediate": [
+        {
+          "selector": "#chart-value-0",
+          "text": "80"
+        },
+        {
+          "selector": "#chart-bar-0",
+          "attr": "aria-valuenow",
+          "value": 80
+        }
+      ]
+    },
+    {
+      "name": "data-reduced",
+      "reduced": true,
+      "steps": [
+        {
+          "type": "click",
+          "selector": "#chart-b"
+        }
+      ],
+      "probes": [
+        {
+          "selector": "#chart-bar-0",
+          "axis": "w",
+          "motion": false
+        }
+      ],
+      "final": [
+        {
+          "selector": "#chart-value-0",
+          "text": "80"
+        }
+      ]
+    },
+    {
+      "name": "group-entry",
+      "steps": [
+        {
+          "type": "click",
+          "selector": "#replay-entry"
+        }
+      ],
+      "probes": [
+        {
+          "selector": ".entry",
+          "property": "opacity",
+          "motion": true
+        }
+      ],
+      "final": [
+        {
+          "selector": ".entry:first-child",
+          "style": "opacity",
+          "number": 1
+        }
+      ]
+    },
+    {
+      "name": "group-entry-reduced",
+      "reduced": true,
+      "steps": [
+        {
+          "type": "click",
+          "selector": "#replay-entry"
+        }
+      ],
+      "probes": [
+        {
+          "selector": ".entry",
+          "property": "opacity",
+          "motion": false
+        }
+      ],
+      "final": [
+        {
+          "selector": ".entry:first-child",
+          "style": "opacity",
+          "number": 1
+        }
+      ]
+    },
+    {
+      "name": "brand-magnet",
+      "steps": [
+        {
+          "type": "hover",
+          "selector": "#magnetic",
+          "x": 0.8
+        }
+      ],
+      "probes": [
+        {
+          "selector": "#magnet-visual",
+          "motion": true
+        },
+        {
+          "selector": "#magnetic",
+          "stable": true
+        }
+      ],
+      "after": [
+        {
+          "type": "click",
+          "selector": "#magnetic"
+        }
+      ],
+      "final": [
+        {
+          "selector": "#brand-count",
+          "text": "探索 1 次"
+        }
+      ]
+    },
+    {
+      "name": "brand-touch",
+      "touch": true,
+      "steps": [
+        {
+          "type": "hover",
+          "selector": "#magnetic",
+          "x": 0.8
+        }
+      ],
+      "probes": [
+        {
+          "selector": "#magnet-visual",
+          "motion": false
+        }
+      ]
+    },
+    {
+      "name": "soft-release",
+      "steps": [
+        {
+          "type": "drag",
+          "selector": "#bubble",
+          "dx": 70,
+          "dy": 20
+        }
+      ],
+      "probes": [
+        {
+          "selector": "#bubble",
+          "axis": "x",
+          "motion": true
+        },
+        {
+          "selector": "#bubble-shape",
+          "motion": true
+        }
+      ],
+      "settle": 1200,
+      "final": [
+        {
+          "selector": "#bubble-status",
+          "text": "回到原位"
+        }
+      ]
+    },
+    {
+      "name": "soft-reduced-during-hold",
+      "steps": [
+        {
+          "type": "reduce",
+          "value": true
+        }
+      ],
+      "probes": [
+        {
+          "selector": "#bubble",
+          "axis": "x",
+          "motion": false,
+          "stable": true
+        },
+        {
+          "selector": "#bubble-shape",
+          "motion": false
+        }
+      ],
+      "after": [
+        {
+          "type": "up"
+        }
+      ],
+      "final": [
+        {
+          "selector": "#bubble",
+          "style": "transform",
+          "value": "matrix(1, 0, 0, 1, 0, 0)"
+        }
+      ],
+      "setup": [
+        {
+          "type": "drag",
+          "selector": "#bubble",
+          "dx": 60,
+          "dy": 20,
+          "release": false
+        }
+      ]
+    },
+    {
+      "name": "soft-keyboard",
+      "setup": [
+        {
+          "type": "focus",
+          "selector": "#bubble"
+        }
+      ],
+      "steps": [
+        {
+          "type": "keydown",
+          "key": "ArrowRight"
+        },
+        {
+          "type": "keyup",
+          "key": "ArrowRight"
+        }
+      ],
+      "probes": [
+        {
+          "selector": "#bubble",
+          "axis": "x",
+          "motion": true
+        }
+      ],
+      "settle": 1200,
+      "final": [
+        {
+          "selector": "#bubble-status",
+          "text": "回到原位"
+        }
+      ]
+    },
+    {
+      "name": "lifecycle-no-resurrection",
+      "steps": [
+        {
+          "type": "click",
+          "selector": "#destroy-patterns"
+        },
+        {
+          "type": "click",
+          "selector": "#replay-entry"
+        },
+        {
+          "type": "click",
+          "selector": "#heart-undo"
+        },
+        {
+          "type": "hover",
+          "selector": "#press-button"
+        },
+        {
+          "type": "down"
+        }
+      ],
+      "probes": [
+        {
+          "selector": ".entry",
+          "property": "opacity",
+          "motion": false
+        },
+        {
+          "selector": "#press-face",
+          "motion": false
+        }
+      ],
+      "after": [
+        {
+          "type": "up"
+        }
+      ],
+      "final": [
+        {
+          "selector": "#press-count",
+          "text": "完成 1 次"
+        }
+      ]
+    }
+  ]
+}
