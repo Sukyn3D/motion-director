@@ -4,6 +4,8 @@
 
 让 AI 把动效原则用到真实项目里，让界面动得更连贯、更好看，也更好用。
 
+[在线体验](https://sukyn3d.github.io/motion-director/) · [下载 1.0](https://github.com/Sukyn3D/motion-director/releases/tag/v1.0)
+
 Motion Director 是一套用于网页与 App 的 UI 动效设计、实现、优化与审查 Skill。它结合五套经典设计体系的动效思路与项目实践规则，指导 AI 发现遗漏、选择机制、接入真实组件，并通过实际操作检查结果。
 
 ## 可以用它做什么
@@ -67,7 +69,17 @@ Apple、Google Material 3、Disney、Microsoft Fluent 2、IBM Carbon 的设计�
 | `assets/lab/`、`craft/`、`experience/`、`regressions/` | 机制实验、真实媒体与生命周期回归示例 |
 | `scripts/` | 本地服务、目录生成、基础测试和浏览器验证工具 |
 
-## 本地查看示例
+## 在线示例
+
+直接点击即可体验，无需下载或启动本地服务：
+
+- [30 套模式展厅](https://sukyn3d.github.io/motion-director/assets/gallery/index.html)
+- [深层机制实验室](https://sukyn3d.github.io/motion-director/assets/lab/index.html)
+- [复合交互实验](https://sukyn3d.github.io/motion-director/assets/craft/index.html)
+- [交互体验实验（含视频）](https://sukyn3d.github.io/motion-director/assets/experience/index.html)
+- [生命周期回归](https://sukyn3d.github.io/motion-director/assets/regressions/index.html)
+
+## 本地运行（可选）
 
 在仓库目录下使用已有 Node.js 启动本地服务：
 
@@ -75,15 +87,7 @@ Apple、Google Material 3、Disney、Microsoft Fluent 2、IBM Carbon 的设计�
 node scripts/serve-regressions.mjs
 ```
 
-随后访问：
-
-- [30 套模式展厅](http://127.0.0.1:4180/assets/gallery/index.html)
-- [深层机制实验室](http://127.0.0.1:4180/assets/lab/index.html)
-- [复合交互实验](http://127.0.0.1:4180/assets/craft/index.html)
-- [交互体验实验](http://127.0.0.1:4180/assets/experience/index.html)
-- [生命周期回归](http://127.0.0.1:4180/assets/regressions/index.html)
-
-这些是本地示例地址，不是线上预览。ES modules 建议通过 HTTP 服务打开，不保证直接双击 HTML 可用。
+随后在浏览器输入 `http://127.0.0.1:4180/assets/gallery/index.html`，或访问上面任一示例的对应本地路径。ES modules 建议通过 HTTP 服务打开，不保证直接双击 HTML 可用。
 
 ## 验证与边界
 
